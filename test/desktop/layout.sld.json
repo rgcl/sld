@@ -1,0 +1,28 @@
+{
+	"id" : "root",
+	"$type" : "dijit/layout/BorderContainer",	
+	"$children" : [{
+		"$type" : "dijit/layout/ContentPane",
+		"region" : "top",
+		"content" : "Hola, soy un mensaje"
+	}, {
+		"id" : "tab",
+		"$type" : "dijit/layout/TabContainer",
+		"region" : "center",
+		"$children" : [{
+			"$type" : "dijit/layout/ContentPane",
+			"title" : "Pane1",
+			"$children" : [{
+				"$type" : "dijit/form/Button",
+				"label" : "label1"			
+			}, {
+				"$type" : "dijit/form/Button",
+				"label" : "label2"
+			}]		
+		}, {
+			"$type" : "dijit/layout/ContentPane",
+			"title" : "Pane2",
+			"content" : "Test"
+		}]
+	}]	
+}
