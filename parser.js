@@ -1,4 +1,4 @@
-define(['dojo/Deferred', 'dojo/request/xhr', 'dojo/_base/config'], function(Deferred, xhr, config) {
+define(['dojo/Deferred', 'dojo/request/xhr'], function(Deferred, xhr) {
 
 	var parse = function(actual, update) {
 

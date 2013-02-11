@@ -1,28 +1,63 @@
 {
-	"id" : "root",
-	"$type" : "dijit/layout/BorderContainer",	
-	"$children" : [{
-		"$type" : "dijit/layout/ContentPane",
-		"region" : "top",
-		"content" : "Hola, soy un mensaje"
-	}, {
-		"id" : "tab",
-		"$type" : "dijit/layout/TabContainer",
-		"region" : "center",
-		"$children" : [{
-			"$type" : "dijit/layout/ContentPane",
-			"title" : "Pane1",
-			"$children" : [{
-				"$type" : "dijit/form/Button",
-				"label" : "label1"			
-			}, {
-				"$type" : "dijit/form/Button",
-				"label" : "label2"
-			}]		
+	"id": "root",
+	"$type": "dijit/layout/BorderContainer",
+	"$children": [{
+		"$type": "dijit/Toolbar",
+		"region": "top",
+		"$children": [{
+			"$type": "dijit/form/DropDownButton",
+			"label": "File",
+			"dropDown": {
+				"$type": "dijit/DropDownMenu",
+				"$children": [{
+					"$type": "dijit/MenuItem",
+					"label": "New"
+				}, {
+					"$type": "dijit/MenuItem",
+					"label": "Save"
+				}, {
+					"$type": "dijit/MenuItem",
+					"label": "Save As..."
+				}]
+			}
 		}, {
-			"$type" : "dijit/layout/ContentPane",
-			"title" : "Pane2",
-			"content" : "Test"
+			"$type": "dijit/DropDownButton",
+			"label": "Edit",
+			"dropDown": {
+				"$type": "dijit/DropDownMenu",
+				"$children": [{
+					"$type": "dijit/MenuItem",
+					"label": "Cut"
+				}, {
+					"$type": "dijit/MenuItem",
+					"label": "Copy"
+				}, {
+					"$type": "dijit/MenuItem",
+					"label": "Paste"
+				}]
+			}
+		}, {
+			"$type": "dijit/form/Button",
+			"label": "A Button"
 		}]
-	}]	
+	}, {
+		"id": "tab",
+		"$type": "dijit/layout/TabContainer",
+		"region": "center",
+		"$children": [{
+			"$type": "dijit/layout/ContentPane",
+			"title": "Pane1",
+			"$children": [{
+				"$type": "dijit/form/Button",
+				"label": "label1"
+			}, {
+				"$type": "dijit/form/Button",
+				"label": "label2"
+			}]
+		}, {
+			"$type": "dijit/layout/ContentPane",
+			"title": "Pane2",
+			"content": "Test"
+		}]
+	}]
 }

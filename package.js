@@ -7,7 +7,7 @@ var miniExcludes = {
 
 var profile = {
 	resourceTags: {
-		test: function(filename, mid){
+		test: function(filename, mid) {
 			return isTestRe.test(filename);
 		},
 
