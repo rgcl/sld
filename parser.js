@@ -70,7 +70,7 @@ define(['dojo/Deferred', 'dojo/request/xhr'], function(Deferred, xhr) {
 		// has popup, dropDown, or similar attribute?
 		for (var key in actual) {
 			// Si este atributo tiene un miembro type, se asume que es un widget
-			if (actual[key].type && key != "$parent") {
+			if (actual[key].$type && key != "$parent") {
 				actual[key].$parent = actualWidget;
 				actual[key].$_key = key;
 				missing.push(actual[key]);

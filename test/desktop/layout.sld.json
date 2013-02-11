@@ -1,6 +1,7 @@
 {
 	"id": "root",
 	"$type": "dijit/layout/BorderContainer",
+	"liveSplitters": true,
 	"$children": [{
 		"$type": "dijit/Toolbar",
 		"region": "top",
@@ -41,7 +42,24 @@
 			"label": "A Button"
 		}]
 	}, {
+		"$type" : "dijit/layout/AccordionContainer",
+		"region" : "leading",
+		"splitter": true,
+		"style" : {
+			"width" : "150px"
+		},
+		"$children" : [{
+			"$type" : "dijit/layout/ContentPane",
+			"title" : "This is as well",
+            "content" : "Hi how are you?"
+		}, {
+			"$type" : "dijit/layout/ContentPane",
+			"title" : "This too",
+            "content" : "Hello im fine.. thnx"
+		}]
+	} ,{
 		"id": "tab",
+		"splitter" : true,
 		"$type": "dijit/layout/TabContainer",
 		"region": "center",
 		"$children": [{
