@@ -1,23 +1,23 @@
 {
-	"$type" : "sld/html/Div",	
-	"$children" : [{
-		"id" : "inicio",
-		"$type" : "dojox/mobile/View",
-		"$chidren" : [{
-			"$type" : "dojox/mobile/Heading",
-			"label" : "View1"
+	"$type": "dojox/mobile/View",
+	"$children": [
+		{
+			"$type": "dojox/mobile/Heading",
+			"label": "View1"
 		}, {
-			"$type" : "dojox/mobile/RoundRectList",
-			"$children" : [{
-				"$type" : "dojo/mobile/ListItem",
-				"icon" : "imh/i-icon-1.png",
-				"moveTo": "view2",
-				"transition" : "slide"
-			}, {
-				"$type" : "dojo/mobile/ListItem",
-				"moveTo": "view2",
-				"transition" : "slide"
-			}]
-		}]
-	}]
+			"$type": "dojox/mobile/RoundRectList",
+			"$children": [
+				{
+					"$type": "dojox/mobile/ListItem",
+					"icon": "imh/i-icon-1.png",
+					"moveTo": "view2",
+					"transition": "slide"
+				}, {
+					"$type": "dojox/mobile/ListItem",
+					"moveTo": "view2",
+					"transition": "slide"
+				}
+			]
+		}
+	]
 }
