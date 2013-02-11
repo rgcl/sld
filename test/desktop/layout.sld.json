@@ -21,7 +21,7 @@
 				}]
 			}
 		}, {
-			"$type": "dijit/DropDownButton",
+			"$type": "dijit/form/DropDownButton",
 			"label": "Edit",
 			"dropDown": {
 				"$type": "dijit/DropDownMenu",
