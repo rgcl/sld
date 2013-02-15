@@ -3,7 +3,7 @@
 A simple way to define a widgets layout in Ecmascript/JSON.
 
 Dijit is a widget package for creating beautiful RIA, it can work programmatically:
-'''javascript
+```javascript
 var tabContainer = new TabContainer({});
 
 var pane1 = new ContentPane({
@@ -23,10 +23,10 @@ pane1.addChild(button);
 
 tabContainer.addChild(pane1);
 tabContainer.addChild(pane2);
-'''
+```
 
 Or declarative in HTML:
-'''html
+```html
 <div data-dojo-type="dijit/layout/TabContainer">
 	<div data-dojo-type="dijit/layout/ContentPane"
 		 data-dojo-props="title:'Pane 1'">
@@ -38,10 +38,10 @@ Or declarative in HTML:
 		</div>
 	</div>
 </div>
-'''
+```
 
 We propose a declarative syntax in ECMAScript / JSON that may be useful to share layouts between development tools:
-'''json
+```json
 {
 	"$type" : "dijit/layout/TabContainer",
 	"$children" : [{
@@ -57,14 +57,14 @@ We propose a declarative syntax in ECMAScript / JSON that may be useful to share
 		"content" : "Hello world!"
 	}]
 }
-''' 
+``` 
 
 ## Specification
 Each JSON object has two special attributes:
 $type {string}: The module identifier (MID) in AMD context.   
 $children {array}: A optional array of objects with the same format
 
-## How contribute?
+## How to contribute?
 
 ## Licence
 
