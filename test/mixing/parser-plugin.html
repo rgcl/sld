@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" >
+		<title>Test Desktop</title>
+		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.8/dijit/themes/claro/claro.css" media="screen">
+		<style>
+			html, body, #root {
+				height:100%;
+				overflow:hidden;
+			}
+			html, body {
+				margin:0;
+				padding:0;
+			}
+		</style>
+		<script>
+			var dojoConfig = {
+				async : true,
+				dojoBlankHtmlUrl : '../blank.html',
+				packages : [{
+					name : 'sld',
+					location : location.pathname.replace(/\/[^/]+$/, '') + '/../../'
+				}]
+			};
+		</script>
+		<script src="//ajax.googleapis.com/ajax/libs/dojo/1.8/dojo/dojo.js"></script>		
+		<script>
+			require(['sld/parser!./layout.sld.json'], function(layout) {
+				layout.placeAt(document.body);
+				layout.startup();
+				console.log('ready!');
+			});
+		</script>
+	</head>
+	<body class="claro"></body>
+</html>

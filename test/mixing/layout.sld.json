@@ -1,0 +1,19 @@
+{
+	"$type": "sld/html/Element",
+	"tagName": "div",
+	"$children": [{
+		"$type": "dijit/layout/TabContainer",
+		"$children": [{
+			"$type": "dijit/layout/ContentPane",
+			"title": "My Pane",
+			"$children": [{
+				"$type": "sld/html/Element",
+				"tagName": "h1",
+				"innerHTML": "My Title"
+			}, {
+				"$type": "dijit/form/Button",
+				"label": "My Button"
+			}]
+		}]
+	}]
+}

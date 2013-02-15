@@ -50,13 +50,10 @@ define(['dojo/Deferred', 'dojo/request/xhr'], function(Deferred, xhr) {
 
 	var create = function(deferred, update, i, root, actual, children, missing, actualWidget, parentWidget) {
 
-		if (actual.$_key) {
-			if (parentWidget.set)
+		if (actual.$_key)
 				parentWidget.set(actual.$_key, actualWidget);
-			else
-				parentWidget[actual.$_key] = actualWidget;
-		} else if (actual.$_i)
-			parentWidget.addChild ? parentWidget.addChild(actualWidget, actual.$_i) : parentWidget.appendChild(actualWidget, actual.$_i);
+		else if (actual.$_i)
+			parentWidget.addChild(actualWidget, actual.$_i);
 		else
 			root = actualWidget;
 
