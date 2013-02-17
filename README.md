@@ -67,7 +67,7 @@ git clone https://github.com/sapienlab/sld.git
 ```
 or use the cmp tool
 ```
-cmp install sld
+cpm install sld
 ```
 
 ## Specification
