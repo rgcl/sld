@@ -78,17 +78,6 @@ Each JSON/Object nodes has two special attributes:
 
 Another attributes are passed to the constructor of the widget.
 
-<pre>
-{
-    "$type" : "dijit/layout/TabContainer",                <div data-dojo-type="dijit/layout/TabContainer"
-    "$children" : [{                                          <div data-dojo-type="dijit/layout/ContentPane"
-        "$type" : "dijit/layout/ContentPane",  //------\\          data-dojo-props="title: 'Hi'">
-        "title" : "Hi",                        \\------//          hi hi
-        "content" : "hi hi"	                                  </div>
-     }]                                                   </div>
-}
-</pre>
-
 ## How to use
 
 Example with the AMD plugin:
