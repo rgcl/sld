@@ -56,7 +56,7 @@ We propose a declarative syntax in ECMAScript/JSON that may be useful to share l
 		"content" : "Hello world!"
 	}]
 }
-
+```
 This package contains a parser for this syntax.
  
 ## Get Code
