@@ -53,7 +53,7 @@ define(['dojo/Deferred', 'dojo/request/xhr'], function(Deferred, xhr) {
 		if (actual.$_key)
 				parentWidget.set(actual.$_key, actualWidget);
 		else if (actual.$_i)
-			parentWidget.addChild(actualWidget, actual.$_i);
+			parentWidget.addChild(actualWidget, actual.$_i);			
 		else
 			root = actualWidget;
 
@@ -103,7 +103,7 @@ define(['dojo/Deferred', 'dojo/request/xhr'], function(Deferred, xhr) {
 	return {
 		parse : parse,
 		count : count,
-		listDependences : function(props) {
+		listDependences : function(props, toObject) {
 
 			var dependencesMap = {};
 
@@ -123,7 +123,13 @@ define(['dojo/Deferred', 'dojo/request/xhr'], function(Deferred, xhr) {
 			for(var key in dependencesMap) {
 				dependenceArray.push(dependencesMap[key]);
 			}
-			return dependencesMap;
+			if(toObject)
+				return dependencesMap;
+			var dependences = [];
+			for(var key in dependencesMap) {
+				dependences.push(key);
+			}
+			return dependences;
 		},
 		load : function(id, require, callback) {
 			xhr(require.toUrl(id), {

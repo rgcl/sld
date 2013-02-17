@@ -1,4 +1,4 @@
-define(['dojo/_base/declare', './parser'], function(declare, parser) {
+define(['dojo/_base/declare', 'dojo/_base/lang', './parser'], function(declare, lang, parser) {
 
 	return declare(null, {
 
@@ -7,7 +7,7 @@ define(['dojo/_base/declare', './parser'], function(declare, parser) {
 		},
 
 		parse : function() {
-			return parser.parse(this.sld);
+			return parser.parse(lang.clone(this.sld));
 		},
 
 		count : function() {

@@ -1,39 +1,43 @@
-define(['dojo/_base/declare', 'dojo/dom-construct'], function(declare, domConstruct) {
+define(['dojo/_base/declare', // declare
+'dojo/_base/lang', // lang
+'dojo/dom-construct' // dom-construct
+], function(declare, lang, domConstruct) {
 
 	return declare(null, {
 
-		constructor : function(props) {	
+		constructor : function(props) {
+			//lang.mixin(this, props);			
 			var domProps = {};
-			for(var key in props)
-				if(key[0] !== '$' && key !== 'tagName')
+			for (var key in props) {
+				if (key[0] !== '$' && key !== 'tagName')
 					domProps[key] = props[key];
-			props.$type && (delete props.$type);
+			}
 			this.domNode = domConstruct.create(props.tagName, domProps);
 			this._children = [];
 		},
-
-		addChild : function(element, pos) {
-			this._children.push(element);
-			element.placeAt(this.domNode, pos || 0);
-		},
-
-		placeAt : function(element, pos) {
-			domConstruct.place(this.domNode, element, pos || 0);
-		},
-
-		set : function() {
-			throw new Error("This is just a HTML element, not a complete widget :)");
-		},
-		
-		getChildren: function() {
-			return this._children;
-		},
 		
 		startup : function() {			
+			if(this._started)
+				return;
+			this._started = true;
 			for(var i in this._children) {
 				this._children[i].startup();
 			}
+		},
+		
+		addChild : function(element, pos) {
+			this._children.push(element);
+			element.placeAt(this, pos || 0);
+		},
+		
+		placeAt : function(parent, pos) {
+			domConstruct.place(this.domNode, parent.domNode || parent , pos || 0);
+		},
+		
+		getChildren : function() {
+			return this._children;
 		}
+		
 	});
 
 });

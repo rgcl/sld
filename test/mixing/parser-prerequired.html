@@ -26,12 +26,30 @@
 		</script>
 		<script src="//ajax.googleapis.com/ajax/libs/dojo/1.8/dojo/dojo.js"></script>
 		<script>
-			require(['sld/Parser', 'dojo/json', 'dojo/text!./layout.sld.json'], function(Parser, JSON, layout) {
+			require(['sld/Parser', 'sld/html/Element', 'dijit/layout/ContentPane'], function(Parser, HtmlElement, ContentPane) {
 
-				var parser = new Parser(JSON.parse(layout, true));
+				var parser = new Parser({
+					$type : HtmlElement,
+					tagName : 'div',
+					id : 'root',					
+					$children : [{
+						$type : 'dijit/layout/TabContainer',
+						style : {
+							width: '100%',
+							height: '100%'
+						},
+						$children : [{
+							$type : ContentPane,
+							'title' : 'Test',
+							$children : [{
+								$type : 'dijit/form/Button',
+								label: ':D'
+							}]
+						}]
+					}]
+				});
 				
-				parser.parse().then(function(layout) {
-					console.log(layout);
+				parser.parse().then(function(layout) {					
 					layout.placeAt(document.body);
 					layout.startup();
 				});
