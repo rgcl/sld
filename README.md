@@ -65,7 +65,7 @@ Clone this repo
 ```
 git clone https://github.com/sapienlab/sld.git
 ```
-or use the cpm tool
+or use the cpm (CommonJS Package Manager)
 ```
 cpm install sld
 ```
