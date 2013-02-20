@@ -37,13 +37,23 @@ define(['dojo/Deferred', 'dojo/request/xhr'], function(Deferred, xhr) {
 		var Type = actual.$type;
 
 		// Instantiate the actual widget
-		if ( typeof Type == 'string') {
+		if ( typeof Type == 'string') { // is MID
 			require([Type], function(Type) {
-				var actualWidget = new Type(actual);
+				try {
+					var actualWidget = new Type(actual);					
+				} catch(e) {
+					deferred.reject(e);
+					return deferred.promise;					
+				}
 				create(deferred, update, i, root, actual, children, missing, actualWidget, parentWidget);
 			});
-		} else {
-			var actualWidget = new Type(actual);
+		} else { // is object
+			try {
+				var actualWidget = new Type(actual);				
+			} catch(e) {
+				deferred.reject(e);
+				return deferred.promise;
+			}
 			create(deferred, update, i, root, actual, children, missing, actualWidget, parentWidget);
 		}
 	};
