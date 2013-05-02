@@ -115,7 +115,7 @@ $ volo add sapienlab/sld
 
 ## SLD Specification
 
-See [SLD 1.0 S](wiki/SLD 1.0 Specifications Draft)
+See [SLD 1.0 S](https://github.com/sapienlab/sld/wiki/SLD-1.0-Specifications-Draft)
 
 ## How to use
 
@@ -232,6 +232,10 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 [dojo]: http://www.dojotoolkit.org 
+[dijit]: http://dojotoolkit.org/reference-guide/dijit/
+[dojox]: http://dojotoolkit.org/reference-guide/dojox/
+[dgrid]: https://github.com/SitePen/dgrid
+[cbtree]: https://github.com/pjekel/cbtree
 [amd]: https://github.com/amdjs/amdjs-api/wiki/AMD
 [cpm]: https://github.org/kriszyp/cpm
 [download]: https://github.com/sapienlab/sld/archive/master.zip
