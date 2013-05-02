@@ -199,7 +199,7 @@ As well, if you have a code issue or suggestion, create a issue, Thanks!
   </thead>
   <tbody>	
     <tr style="vertical-align:top">
-      <td>sld-0.1.0</td>
+      <td><a href="http://sourceforge.net/projects/sld-lib/files/sld-0.1.0.zip/download">sld-0.1.0</a></td>
       <td>May 2, 2013</td>
       <td>Dojo 1.8</td>
       <td>
@@ -212,7 +212,7 @@ As well, if you have a code issue or suggestion, create a issue, Thanks!
       </td>
     </tr>
     <tr style="vertical-align:top">
-      <td><a href="https://sourceforge.net/projects/sld-lib/files/latest/download">sld-0.0.0</a></td>
+      <td><a href="http://sourceforge.net/projects/sld-lib/files/sld-0.0.0.zip/download">sld-0.0.0</a></td>
       <td>Feb 20, 2013</td>
       <td>Dojo 1.8</td>
       <td>Initial SLD release</td>
