@@ -190,7 +190,7 @@ As well, if you have a code issue or suggestion, create a issue, Thanks!
 ##Releases
 <table style="width:100%">
   <thead>
-	  <tr>
+	<tr>
 	  <th style="width:15%;">Version</th>
 	  <th style="width:15%;">Date</th>
 	  <th style="width:10%;">Dependences</th>
@@ -201,7 +201,7 @@ As well, if you have a code issue or suggestion, create a issue, Thanks!
     <tr style="vertical-align:top">
       <td>sld-0.1.0</td>
       <td>May 2, 2013</td>
-      <td>1.8</td>
+      <td>Dojo 1.8</td>
       <td>
 		Mixin support added.<br/>
 		Rules support added.<br/>
@@ -209,7 +209,7 @@ As well, if you have a code issue or suggestion, create a issue, Thanks!
 		New test added.<br/>
 		Parser now has asynchronous behavior.<br/>		
 		Updated documentation.<br/>
-      <td>
+      </td>
     </tr>
     <tr style="vertical-align:top">
       <td><a href="https://sourceforge.net/projects/sld-lib/files/latest/download">sld-0.0.0</a></td>
