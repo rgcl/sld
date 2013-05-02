@@ -15,11 +15,9 @@
 		</script>
 		<script src="//ajax.googleapis.com/ajax/libs/dojo/1.8/dojo/dojo.js"></script>
 		<script>
-			require(['sld/parser', 'dojo/json', 'dojo/text!./layout.sld.json'], function(parser, JSON, layout) {
+			require(['sld/parser', 'dojo/text!./layout.sld.json', 'dojo/domReady!'], function(parser, sld) {				
 
-				layout = JSON.parse(layout, true);
-
-				parser.parse(layout, true).then(function(layout) {
+				parser.parse(sld).then(function(layout) {
 					layout.placeAt(document.body);
 					layout.startup();
 				}, function(err) {
@@ -27,7 +25,6 @@
 				}, function(data) {
 					console.log(data, " is loaded");
 				});
-
 			});
 		</script>
 	</head>

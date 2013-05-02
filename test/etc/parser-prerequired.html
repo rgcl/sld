@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8" >
+		<title>Test Desktop</title>
+		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.8/dijit/themes/claro/claro.css" media="screen">
+		<style>
+			html, body, #root {
+				height: 100%;
+				overflow: hidden;
+			}
+			html, body {
+				margin: 0;
+				padding: 0;
+			}
+		</style>
+		<script>
+			var dojoConfig = {
+				async : true,
+				dojoBlankHtmlUrl : '../blank.html',
+				packages : [{
+					name : 'sld',
+					location : location.pathname.replace(/\/[^/]+$/, '') + '/../../'
+				}]
+			};
+		</script>
+		<script src="//ajax.googleapis.com/ajax/libs/dojo/1.8/dojo/dojo.js"></script>
+		<script>
+			require(['sld/Parser', 'sld/html/Element', 'dijit/layout/ContentPane', 'dojo/domReady!'], function(Parser, HtmlElement, ContentPane) {
+
+				var parser = new Parser({
+					sld : {
+						$type : HtmlElement,
+						tagName : 'div',
+						id : 'root',
+						$children : [{
+							$type : 'dijit/layout/TabContainer',
+							style : {
+								width : '100%',
+								height : '100%'
+							},
+							$children : [{
+								$type : ContentPane,
+								'title' : 'Test',
+								$children : [{
+									$type : 'dijit/form/Button',
+									label : ':D'
+								}]
+							}]
+						}]
+					}
+				});
+
+				parser.parse().then(function(layout) {
+					layout.placeAt(document.body);
+					layout.startup();
+				});
+
+				console.log('dependences:', parser.listDependences());
+
+				console.log('count:', parser.count());
+
+			});
+		</script>
+	</head>
+	<body class="claro"></body>
+</html>
