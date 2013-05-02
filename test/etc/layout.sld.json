@@ -1,0 +1,24 @@
+{
+	"$type": "sld/html/Element",
+	"tagName": "div",
+	"id" : "root",
+	"$children": [{
+		"$type": "dijit/layout/TabContainer",
+		"style" : {
+			"width" : "100%",
+			"height" : "100%"
+		},
+		"$children": [{
+			"$type": "dijit/layout/ContentPane",
+			"title": "My Pane",
+			"$children": [{
+				"$type": "sld/html/Element",
+				"tagName": "h1",
+				"innerHTML": "My Title"
+			}, {
+				"$type": "dijit/form/Button",
+				"label": "My Button"				
+			}]
+		}]
+	}]
+}

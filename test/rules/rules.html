@@ -4,6 +4,7 @@
 		<meta charset="UTF-8" >
 		<title>Test Desktop</title>
 		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.8/dijit/themes/claro/claro.css" media="screen">
+		<link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/dojo/1.8/dojox/treemap/themes/TreeMap.css">
 		<style>
 			html, body, #root {
 				height:100%;
@@ -26,13 +27,15 @@
 		</script>
 		<script src="//ajax.googleapis.com/ajax/libs/dojo/1.8/dojo/dojo.js"></script>
 		<script>
-			require(['sld/parser', 'dojo/text!./layout.sld.json', 'dojo/domReady!'], function(parser, sld) {				
+			require(['sld/parser', 'dojo/text!./layout.sld.json', 'sld/test/rules/rules', 'dojo/domReady!'], function(parser, layout, rules) {
 
-				parser.parse(sld).then(function(layout) {
+				// parser the layout with some rules
+				parser.parse(layout, rules).then(function(layout) {
 					layout.placeAt(document.body);
 					layout.startup();
 				}, function(err) {
-					console.debug(err);
+					console.error(err);
+					lastError = err;
 				}, function(data) {
 					console.log(data, " is loaded");
 				});

@@ -21,7 +21,7 @@
 	</head>
 	<body class="claro">
 		<script>
-			require(['require', 'dojox/mobile', 'dojox/mobile/deviceTheme', 'dojox/mobile/compat'], function(require) {
+			require(['require', 'dojox/mobile', 'dojox/mobile/deviceTheme', 'dojox/mobile/compat', 'dojo/domReady!'], function(require) {
 				require(['sld/parser!./layout.sld.json'], function(layout) {
 					layout.placeAt(document.body);
 					layout.startup();

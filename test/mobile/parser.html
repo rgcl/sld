@@ -21,12 +21,10 @@
 	</head>
 	<body class="claro">
 		<script>
-			require(['require', 'dojox/mobile', 'dojox/mobile/deviceTheme', 'dojox/mobile/compat'], function(require) {
-				require(['sld/parser', 'dojo/json', 'dojo/text!./layout.sld.json'], function(parser, JSON, layout) {
+			require(['require', 'dojox/mobile', 'dojox/mobile/deviceTheme', 'dojox/mobile/compat', 'dojo/domReady!'], function(require) {
+				require(['sld/parser', 'dojo/text!./layout.sld.json'], function(parser, sld) {					
 
-					layout = JSON.parse(layout, true);
-
-					parser.parse(layout, true).then(function(layout) {
+					parser.parse(sld).then(function(layout) {
 						layout.placeAt(document.body);
 						layout.startup();
 					}, function(err) {
