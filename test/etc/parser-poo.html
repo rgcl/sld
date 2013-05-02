@@ -26,16 +26,21 @@
 		</script>
 		<script src="//ajax.googleapis.com/ajax/libs/dojo/1.8/dojo/dojo.js"></script>
 		<script>
-			require(['sld/parser', 'dojo/text!./layout.sld.json', 'dojo/domReady!'], function(parser, sld) {				
+			require(['sld/Parser', 'dojo/text!./layout.sld.json', 'dojo/domReady!'], function(Parser, sld) {
 
-				parser.parse(sld).then(function(layout) {
+				var parser = new Parser({
+					sld : sld,
+					rules : {}
+				});
+				
+				parser.parse().then(function(layout) {					
 					layout.placeAt(document.body);
 					layout.startup();
-				}, function(err) {
-					console.debug(err);
-				}, function(data) {
-					console.log(data, " is loaded");
 				});
+				
+				console.log('dependences:', parser.listDependences());
+				
+				console.log('count:', parser.count());
 
 			});
 		</script>
