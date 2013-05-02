@@ -115,7 +115,7 @@ $ volo add sapienlab/sld
 
 ## SLD Specification
 
-See [SLD 1.0 S](SLD 1.0 Specifications Draft)
+See [SLD 1.0 S](wiki/SLD 1.0 Specifications Draft)
 
 ## How to use
 
@@ -189,15 +189,15 @@ As well, if you have a code issue or suggestion, create a issue, Thanks!
 
 ##Releases
 <table style="width:100%">
-  <tbody>
-	<thead>
+  <thead>
 	  <tr>
-	    <th style="width:15%;">Version</th>
-	    <th style="width:15%;">Date</th>
-	    <th style="width:10%;">Dependences</th>
-	    <th>Description</th>
-	  </tr>
-	</thead>
+	  <th style="width:15%;">Version</th>
+	  <th style="width:15%;">Date</th>
+	  <th style="width:10%;">Dependences</th>
+	  <th>Description</th>
+	</tr>
+  </thead>
+  <tbody>	
     <tr style="vertical-align:top">
       <td>sld-0.1.0</td>
       <td>May 2, 2013</td>
@@ -212,7 +212,7 @@ As well, if you have a code issue or suggestion, create a issue, Thanks!
       <td>
     </tr>
     <tr style="vertical-align:top">
-      <td>[sld-0.0-0](https://sourceforge.net/projects/sld-lib/files/latest/download)</td>
+      <td><a href="https://sourceforge.net/projects/sld-lib/files/latest/download">sld-0.0.0</a></td>
       <td>Feb 20, 2013</td>
       <td>Dojo 1.8</td>
       <td>Initial SLD release</td>
