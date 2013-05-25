@@ -149,17 +149,17 @@ define(['dojo/_base/declare', 'dojo/request/xhr', 'dojo/Deferred', 'dojo/json'],
 
 			var types = [], requires = [], requiresIndex = [];
 
-			for (var i in widgetType) {
-				if ( typeof widgetType[i] === 'string') {
-					requires.push(widgetType[i]);
-					requiresIndex.push(i);
+			for (var j in widgetType) {
+				if ( typeof widgetType[j] === 'string') {
+					requires.push(widgetType[j]);
+					requiresIndex.push(j);
 				} else// is constructor
-					types[i] = widgetType[i];
+					types[j] = widgetType[j];
 			}
 
 			require(requires, function() {
-				for (var i in arguments) {
-					types[requiresIndex[i]] = arguments[i]
+				for (var j in arguments) {
+					types[requiresIndex[j]] = arguments[j]
 				}
 				try {
 					var widget = new declare(types)(sld);
@@ -259,9 +259,12 @@ define(['dojo/_base/declare', 'dojo/request/xhr', 'dojo/Deferred', 'dojo/json'],
 			if (toObject)
 				return dependencesMap;
 
+			if(Object.keys)
+				return Object.keys(dependencesMap);
+			
 			var dependenceArray = [];
 			for (var key in dependencesMap) {
-				dependenceArray.push(dependencesMap[key]);
+				dependenceArray.push(key);
 			}
 
 			return dependenceArray;
