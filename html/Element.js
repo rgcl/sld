@@ -1,7 +1,9 @@
-define(['dojo/_base/declare', // declare
-'dojo/_base/lang', // lang
-'dojo/dom-construct' // dom-construct
-], function(declare, lang, domConstruct) {
+define([
+	'dojo/_base/declare',
+	'dojo/_base/lang',
+	'dojo/dom-construct',
+	'dojo/on'
+], function(declare, lang, domConstruct, on) {
 
 	return declare(null, {
 
@@ -46,7 +48,18 @@ define(['dojo/_base/declare', // declare
 				this._children[i].destroy();
 			}
 			domConstruct.destroy(this.domNode);
+		},
+		
+		on : function(event, callback) {
+			var me = this;
+			on(this.domNode, event, callback);
+		},
+		
+		emit : function(event, data) {
+			var me = this;
+			on.emit(me.domNode, event, data);
 		}
+		
 	});
 
 });
