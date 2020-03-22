@@ -1,3 +1,7 @@
+/*
+The MIT License (MIT)
+Copyright (c) 2013-2020 Rodrigo González Castillo <r.gnzlz.cstll@gmail.com>
+ */
 var miniExcludes = {
 		"sld/index.html": 1,
 		"sld/README.md": 1,

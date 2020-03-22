@@ -27,10 +27,10 @@
 		</script>
 		<script src="//ajax.googleapis.com/ajax/libs/dojo/1.8/dojo/dojo.js"></script>
 		<script>
-			require(['sld/parser', 'dojo/text!./layout.sld.json', 'sld/test/rules/rules', 'dojo/domReady!'], function(parser, layout, rules) {
+			require(['sld/parser', 'dojo/text!./layout.sld.json', 'sld/test/rules/rules', 'dojo/domReady!'], function(parser, layout, options) {
 
-				// parser the layout with some rules
-				parser.parse(layout, rules).then(function(layout) {
+				// parser the layout with some <del>rules</del>options
+				parser.parse(layout, options).then(function(layout) {
 					layout.placeAt(document.body);
 					layout.startup();
 				}, function(err) {

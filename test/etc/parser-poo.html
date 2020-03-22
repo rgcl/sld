@@ -27,20 +27,17 @@
 		<script src="//ajax.googleapis.com/ajax/libs/dojo/1.8/dojo/dojo.js"></script>
 		<script>
 			require(['sld/Parser', 'dojo/text!./layout.sld.json', 'dojo/domReady!'], function(Parser, sld) {
+				window.Parser = Parser;
+				window.sld = sld;
+				var parser = new Parser(sld);
 
-				var parser = new Parser({
-					sld : sld,
-					rules : {}
-				});
+				console.log('dependences:', parser.listDependences());
+				console.log('count:', parser.count());
 				
-				parser.parse().then(function(layout) {					
+				parser.parse().then(function(layout) {
 					layout.placeAt(document.body);
 					layout.startup();
 				});
-				
-				console.log('dependences:', parser.listDependences());
-				
-				console.log('count:', parser.count());
 
 			});
 		</script>

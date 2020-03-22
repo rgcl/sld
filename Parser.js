@@ -1,4 +1,8 @@
-define(['dojo/_base/declare', // declare 
+/*
+The MIT License (MIT)
+Copyright (c) 2013-2020 Rodrigo González Castillo <r.gnzlz.cstll@gmail.com>
+ */
+define(['dojo/_base/declare', // declare
 	'dojo/Stateful', // Stateful
 	'dojo/_base/lang', // lang 
 	'./parser' // parser
@@ -8,21 +12,18 @@ define(['dojo/_base/declare', // declare
 
 		/**
 		 * 
- 		 * @param [{Object}] args
- 		 * @param [{Object}] args.sld
- 		 * @param [{Array}] args.rules
+ 		 * @param [{Object}] sld
 		 */
-		constructor : function(args) {
-			this._sld = args.sld || {};
-			this._rules = args.rules || [];
-			this._parsed = false;
-			this._counted = false;
-			this._dependences = false;
+		constructor : function(sld) {
+			this._sld = sld || {};
+			this._parsed = null;
+			this._counted = null;
+			this._dependences = null;
 		},
 
-		parse : function() {
+		parse : function(options) {
 			if (!this._parsed)
-				this._parsed = parser.parse(lang.clone(this._sld), this._rules);
+				this._parsed = parser.parse(this._sld, options || {});
 			return this._parsed;
 		},
 

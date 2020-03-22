@@ -1,12 +1,12 @@
 # Simple Layout Definition
-A simple way to define layout of widgets in JSON/Ecmascript.
+A simple way to define layout of widgets for Dojo Toolkit.
 
 ## Introduction
-**SLD** is a proposed specification for describe a layout of [amd][AMD]-widgets in JSON.
+**SLD** is a proposed specification to describe a layout of [amd][AMD]-widgets in JSON.
 This library is a parser for that specification.
 
-This was originally intended to [dojo][Dojo Toolkit] widgets ([dijit][dijit], some [dojox][dojox], 
-[dgrid][dgrid], [cbtree][cbtree], etc), but is not limited to them.
+This was originally intended to [dojo][Dojo Toolkit] (v1.*) widgets ([dijit][dijit], some [dojox][dojox], 
+[dgrid][dgrid], [cbtree][cbtree], etc).
 
 ###Explain with Dijit
 
@@ -52,7 +52,7 @@ Or declarative in HTML:
 </div>
 ```
 
-**SLD** library propose a declarative syntax in ECMAScript/JSON that may be useful to share layouts between development tools:
+**SLD** library propose a declarative syntax in JSON that may be useful to share layouts between development tools:
 
 ```json
 {
@@ -77,45 +77,36 @@ This library contain a parser for the SLD specification
 ```javascript
 require(['sld/parser', 'dojo/domReady!'], function(parser) {
 
-  parser.parse({
-    "$type" : "dijit/layout/TabContainer",
-    "$children" : [{
-      "$type" : "dijit/layout/ContentPane",
-      "title" : "Pane 1",
-      "$children" : [{
-        "$type" : "dijit/form/Button",			
-        "label" : "My button"
-      }]
-    }, {
-      "$type" : "dijit/layout/ContentPane",
-      "title" : "Pane 2",
-      "content" : "Hello world!"
-    }]
-  }).them(function(layout) {
+    let sld = {
+        "$type" : "dijit/layout/TabContainer",
+            "$children" : [{
+                "$type" : "dijit/layout/ContentPane",
+                "title" : "Pane 1",
+                "$children" : [{
+                    "$type" : "dijit/form/Button",			
+                    "label" : "My button"
+                }]
+            }, {
+            "$type" : "dijit/layout/ContentPane",
+            "title" : "Pane 2",
+            "content" : "Hello world!"
+        }]
+    };
+
+  parser.parse(sld).then(function(layout) {
   	layout.placeAt(document.body); // Attach the layout in the body
+    layout.startup();
   });
 });
 ```
 
 ## Installation
 
-**SLD** API can be installed via [cpm][cpm], or [volo][volo], or simply [downloaded][download].
-
-Via cpm:
-
-```bash
-$ cpm install sld
-```
-
-Via volo:
-
-```bash
-$ volo add sapienlab/sld
-```
+**SLD** API can be installed via bower, npm, or simply [downloaded][download].
 
 ## SLD Specification
 
-See [SLD 1.0 S](https://github.com/sapienlab/sld/wiki/SLD-1.0-Specifications-Draft)
+See [SLD 1.0 S](https://github.com/rgcl/sld/wiki/SLD-1.0-Specifications-Draft) [Outdated, see the test directory instead]
 
 ## How to use
 
@@ -147,9 +138,10 @@ For more examples see /test
 * sld {Object} a SLD tree node.
 * rules [{Object}] a optional object that (if exists) contain this attributes:
 	* tokens [{Object}] a optional object of tokens:
-		* TYPE {string} the token for the $type word.
-		* CHILDREN {string} the token for the $children word.
-	* require [{function}] a optional reference for the AMD require. 
+		* TYPE {string} the token for the $type key.
+		* CHILDREN {string} the token for the $children key.
+		* REF {string} the token for the $ref key.
+	* require [{function}] a optional reference for the AMD require.
 	* rules [{Array}] a optional array of rules. A rule is a Object that contain this attibutes:
 		* keyPattern {RegExp|string} a pattern for some key. Indicates that this rule applies to this attribute if it matches their key. 
 		Example, is keyPattern is /^on/, then onClick, onMouseOver, etc. use this rule. Other are ignored.
@@ -161,7 +153,7 @@ For more examples see /test
 *See sld/test/rules for example of rules.* 
   
 **Return:** {dojo/promise} a [promise](http://dojotoolkit.org/documentation/tutorials/1.8/promises/) that is resolve when the SLD is instantiate. 
-The parameter of the callback is the instantiate widget.
+The parameter of the callback is the instantiated widget.
 
 #### parser.count(sld)
 
@@ -184,8 +176,7 @@ Contain the same of sld/parser, but in OOP.
 
 ## How to contribute?
 
-* I'm not a native English speaker, so create a issue or better a pull request for all of my grammatical errors :)
-As well, if you have a code issue or suggestion, create a issue, Thanks!
+* If you had a code issue or suggestion, please create a issue, Thanks!
 
 ##Releases
 <table style="width:100%">
@@ -197,7 +188,25 @@ As well, if you have a code issue or suggestion, create a issue, Thanks!
 	  <th>Description</th>
 	</tr>
   </thead>
-  <tbody>	
+  <tbody>
+    <tr style="vertical-align:top">
+        <td><a>0.2.0</a></td>
+        <td>March 19, 2020</td>
+        <td>Dojo 1.10+</td>
+        <td>
+            <ul>
+                <li>Deletion of the support for IE 7 and below.</li>
+                <li>Deletion the undocumented options.require parameter, that was intended to use another require function than Dojo.</li>
+                <li>Deletion of members of an Object was removed, so the library is now compatible with the strict ECMAScript mode. 
+                This unfortunately implies that some flags added during assembly will be retained in the final layout; However, this 
+                should not be annoying, because everyone has the prefix `$__`.</li>
+                <li>Added `$on:{event}` key in the SLD which map to the hydrateObject[value] method</li>
+                <li>Added `$ref` key in the SLD which is injected to hydrateObject.$ref.{value} as instantiated widget</li>
+                <li>Added `$typeAliasMap` key in the SLD to make an alias to the $type</li>
+                <li>Added `$i18n:{string}` key in the SLD which work with i18n option, to map the correct string</li>
+            </ul>
+        </td>
+    </tr>	
     <tr style="vertical-align:top">
       <td><a href="http://sourceforge.net/projects/sld-lib/files/sld-0.1.0.zip/download">sld-0.1.0</a></td>
       <td>May 2, 2013</td>
@@ -223,7 +232,7 @@ As well, if you have a code issue or suggestion, create a issue, Thanks!
 ## Licence
 
 The MIT License (MIT)
-Copyright (c) 2013 Rodrigo González, Sapienlab
+Copyright (c) 2013-2020 Rodrigo González Castillo
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

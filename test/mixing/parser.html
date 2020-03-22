@@ -30,7 +30,7 @@
 
 				layout = JSON.parse(layout, true);
 
-				parser.parse(layout, true).then(function(layout) {
+				parser.parse(layout).then(function(layout) {
 					layout.placeAt(document.body);
 					layout.startup();					
 					

@@ -12,7 +12,8 @@
 				"$type": "dijit/DropDownMenu",
 				"$children": [{
 					"$type": "dijit/MenuItem",
-					"label": "New"
+					"$nls:label": "New",
+					"$on:Click": "performNew"
 				}, {
 					"$type": "dijit/MenuItem",
 					"label": "Save"

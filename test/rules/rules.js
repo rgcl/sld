@@ -30,14 +30,26 @@ define(['dojo/topic',
 	    ]});
 
 	return {
+		i18n: i18n.es,
+		typeAliasMap: {
+			Pane: 'dijit/layout/ContentPane'
+		},
 		tokens : {
 			// You can change the tokens $type and $children
 			// so on, any override token is passed as normal member (such as label, style, etc)
 			TYPE : '_tipo', // now $type is _tipo
 			CHILDREN : '_hijos' // now $children is _hijos
 		},
-		rules : [{
+		hydrateObject: {
+			someAttr: 'Bob',
+			count: 0,
+			onClickBtn: function() {
+				this.$ref.counter.set('value', ++this.count);
+			}
+		},
+		rules: [{
 			// Example rule for translations
+			// This is deprecated with i18n:*
 			keyPattern : /^(title|label)$/,
 			onPreparse : function(key, value) {
 				this.value = i18n[lang][value] || value;
@@ -45,6 +57,7 @@ define(['dojo/topic',
 		}, {
 			// Example rule for emit event to the global event bus
 			// (named dojo/topic in dojo)
+			// This is deprecated with on:*
 			keyPattern : 'exec',
 			key : 'onClick',
 			onPreparse : function(key, value) {
@@ -56,6 +69,7 @@ define(['dojo/topic',
 			}
 		}, {
 			// Example rule for emit local widget event
+			// This is deprecated with on:*
 			keyPattern : /^on[A-Z]/, // onClick, onChange, onKeyPress, etc
 			onPreparse : function(key, value) {
 				if ( typeof value !== 'string')

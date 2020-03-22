@@ -29,7 +29,7 @@
 			}
 		}, {
 			"_tipo": "dijit/form/DropDownButton",
-			"label": "Edit",
+			"$i18n:label": "Edit",
 			"dropDown": {
 				"_tipo": "dijit/DropDownMenu",
 				"_hijos": [{
@@ -59,7 +59,7 @@
 			"width" : "150px"
 		},
 		"_hijos" : [{
-			"_tipo" : "dijit/layout/ContentPane",
+			"_tipo" : "Pane",
 			"title" : "This is as well",
             "content" : "Hi how are you?"
 		}, {
@@ -74,14 +74,20 @@
 		"_tipo": "dijit/layout/TabContainer",
 		"region": "center",
 		"_hijos": [{
-			"_tipo": "dijit/layout/ContentPane",
+			"_tipo": "Pane",
 			"title": "Pane1",
 			"_hijos": [{
 				"_tipo": "dijit/form/Button",
-				"label": "label1"
+				"$i18n:label": "hello"
 			}, {
 				"_tipo": "dijit/form/Button",
-				"label": "label2"
+				"label": "Click me, I'm using $on:click! :D",
+				"$on:click": "onClickBtn"
+			}, {
+				"_tipo": "dijit/form/NumberTextBox",
+				"placeholder": "count",
+				"$ref": "counter",
+				"readonly": true
 			}]
 		}, {
 			"_tipo": ["dojox/treemap/TreeMap", "dojox/treemap/Keyboard", "dojox/treemap/DrillDownUp"],

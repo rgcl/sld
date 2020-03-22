@@ -1,20 +1,21 @@
 {
-	"name": "sld",
-	"author": "Rodrigo González",
-	"description": "A simple way to define a widgets layout in JSON. Originally intended for Dijit, but not limited to it.",
-	"licenses": [
-		{
-			"type": "MIT",
-			"url": "http://opensource.org/licenses/MIT"
-		}
-	],
-	"dependencies": {
-		"dojo": "1.8.3"
-	},
-	"repository": {
-		"type": "git",
-		"url": "http://github.com/sapienlab/sld"
-	},
-	"main": "./main",
-	"dojoBuild": "package.js"
+  "name": "sld",
+  "version": "0.2.0",
+  "author": "Rodrigo González Castillo <r.gnzlz.cstll@gmail.com>",
+  "description": "A simple way to define a widgets layout in JSON. Originally intended for Dijit.",
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://opensource.org/licenses/MIT"
+    }
+  ],
+  "dependencies": {
+    "dojo": "^1.16.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/rgcl/sld"
+  },
+  "main": "./main",
+  "dojoBuild": "package.js"
 }
