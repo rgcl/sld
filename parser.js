@@ -68,7 +68,8 @@ define(['dojo/_base/declare', 'dojo/request/xhr', 'dojo/Deferred', 'dojo/on', 'd
 				sld[TOKEN_REQUIRE] = null;
 				require(['dojo/text!' + widgetRequire], function(sldRequired) {
 					parse(sldRequired, options).then(function(widget) {
-						associateWithParent(deferred, created, missing, root, i, sld, widget, widgetParent, widgetParentIndex);
+						associateWithParent(deferred, created, missing, root, i, sld, widget, eventsMap, widgetParent,
+							widgetParentIndex);
 					}, deferred.reject, deferred.progress);
 				});
 				return;
