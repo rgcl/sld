@@ -216,7 +216,8 @@ define(['dojo/_base/declare', 'dojo/request/xhr', 'dojo/Deferred', 'dojo/on', 'd
 			else if(typeof widgetParentIndex === 'number')
 				widgetParent.addChild(widget, widgetParentIndex);
 			else
-				deferred.rejected(new Error("Invalid widget parent association: Index must to be a string or a number"));
+				deferred.reject(new Error("Invalid widget parent association: Index must to be a string or a number, " +
+					"and not " + typeof(widgetParentIndex)));
 
 			if(options.hydrateObject) {
 				// Hydrate the object for anchor $ref
