@@ -47,7 +47,7 @@ define(['dojo/_base/declare', 'dojo/request/xhr', 'dojo/Deferred', 'dojo/on', 'd
 
 		function recursiveParse(deferred, created, missing, root, i) {
 
-			if (!missing.length) {;
+			if (!missing.length) {
 				deferred.resolve(root);
 				return;
 			}
@@ -67,7 +67,7 @@ define(['dojo/_base/declare', 'dojo/request/xhr', 'dojo/Deferred', 'dojo/on', 'd
 			if(widgetRequire) {
 				sld[TOKEN_REQUIRE] = null;
 				require(['dojo/text!' + widgetRequire], function(sldRequired) {
-					parse(sldRequired, options, function(widget) {
+					parse(sldRequired, options).then(function(widget) {
 						associateWithParent(deferred, created, missing, root, i, sld, widget, widgetParent, widgetParentIndex);
 					}, deferred.reject, deferred.progress);
 				});

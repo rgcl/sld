@@ -1,6 +1,6 @@
 {
   "name": "sld",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Rodrigo González Castillo <r.gnzlz.cstll@gmail.com>",
   "description": "A simple way to define a widgets layout in JSON. Originally intended for Dijit.",
   "licenses": [
