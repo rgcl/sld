@@ -231,7 +231,6 @@ define(['dojo/_base/declare', 'dojo/request/xhr', 'dojo/Deferred', 'dojo/on', 'd
 				// Hydrate the object for events $on:*
 				for(var eventKey in eventsMap) {
 					if(eventsMap.hasOwnProperty(eventKey)) {
-						console.log(eventsMap, eventKey)
 						if(!(eventsMap[eventKey] in options.hydrateObject)) {
 							return deferred.reject('Error in SLD parser: ' + eventsMap[eventKey]
 								+ ' method is not in hydrateObject for widget id=' + widget.id);
@@ -239,7 +238,12 @@ define(['dojo/_base/declare', 'dojo/request/xhr', 'dojo/Deferred', 'dojo/on', 'd
 						on(
 							widget,
 							eventKey,
-							lang.hitch(options.hydrateObject, options.hydrateObject[eventsMap[eventKey]])
+							lang.hitch(
+								options.hydrateObject, // scope object
+								lang.getObject( // get the event from the hydrateObject
+									eventsMap[eventKey], true, options.hydrateObject
+								)
+							)
 						);
 					}
 				}
